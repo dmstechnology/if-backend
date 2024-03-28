@@ -125,4 +125,4 @@ def filter_data():
     return json_util.dumps(filtered_data_entries)
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(host='0.0.0.0', port=8501)
