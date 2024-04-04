@@ -30,7 +30,7 @@ db = client['csv_database']
 def index():
     return render_template('index.html')
 
-@app.route('/api/upload', methods=['POST'])
+@app.route('/upload', methods=['POST'])
 def upload_file():
     if 'csv_file' not in request.files:
         return redirect(request.url)
@@ -79,7 +79,7 @@ def list_files():
     files = csv_files_collection.find({})
     return render_template('files.html', files=files)
 
-@app.route('/api/fetch')
+@app.route('/fetch')
 def fetch_data_api():
     csv_files_collection = db['csv_files']
     files = csv_files_collection.find({})
@@ -97,7 +97,7 @@ def fetch_data_api():
 
 
 
-@app.route('/api/filter')
+@app.route('/filter')
 def filter_data():
     # Get the filter values for "Lead Name", "intentScore", "agentCalledLast", and "dateOfLastCall" from the request
     lead_name_filter = request.args.get('leadName')
